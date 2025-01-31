@@ -1,6 +1,14 @@
 import java.util.Scanner;
 
 public class Bob {
+    private static int current;
+    private static String[] list;
+
+    //Initializer for Bob
+    public Bob() {
+        current = 0;
+        list = new String[100];
+    }
 
     //Takes in a string input and prints outputs depending on the input string
     public static void parseString(String input) {
@@ -9,8 +17,16 @@ public class Bob {
         case "bye":
             System.out.println("Bye dude, see you soon again!");
             break;
+        case "list":
+            for (int i = 0; i < current; i++) {
+                System.out.println(i + 1 + ". " + list[i]);
+            }
+            break;
         default:
-            System.out.println(input);
+            list[current] = input;
+            System.out.println("added: " + input);
+            current++;
+            break;
         }
         System.out.println("____________________________________________________________");
     }
@@ -23,6 +39,7 @@ public class Bob {
         //Initialise input variables
         String line;
         Scanner in;
+        Bob Tasks = new Bob();
 
         //Handle Cases
         do {
