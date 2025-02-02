@@ -16,7 +16,7 @@ public class Bob {
 
         //Strip input into position and command
         int taskPosition = input.indexOf(' ');
-        String command = "";
+        String command;
         int position = -1;
         if (taskPosition != -1) {
             command = input.substring(0, input.indexOf(' '));
@@ -31,7 +31,7 @@ public class Bob {
             break;
         case "list":
             for (int i = 0; i < current; i++) {
-                System.out.println(i + 1 + ". " + "[" + list[i].getStatusIcon() + "]" + list[i].description);
+                System.out.println(i + 1 + ". " + list[i].getTask());
             }
             break;
         case "mark":
@@ -40,7 +40,7 @@ public class Bob {
             } else {
                 System.out.println("Okay, we are checking... okay marked as done!");
                 list[position - 1].markAsDone();
-                System.out.println("[" + list[position - 1].getStatusIcon() + "]" + list[position - 1].description);
+                System.out.println(list[position - 1].getTask());
             }
             break;
         case "unmark":
@@ -49,13 +49,14 @@ public class Bob {
             } else {
                 System.out.println("Okay, we are checking... okay unmarked the task!");
                 list[position - 1].markAsUndone();
-                System.out.println("[" + list[position - 1].getStatusIcon() + "]" + list[position - 1].description);
+                System.out.println(list[position - 1].getTask());
             }
             break;
         default:
             list[current] = new Task(input);
             System.out.println("added: " + input);
             current++;
+            System.out.println("Current number of tasks: " + current);
             break;
         }
         System.out.println("____________________________________________________________");

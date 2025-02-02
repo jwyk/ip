@@ -9,7 +9,15 @@ public class Task {
     }
 
     public String getStatusIcon() {
-        return (isDone ? "X" : " "); // mark done task with X
+        return (isDone ? "[X]" : "[ ]"); // mark done task with X
+    }
+
+    public String getTaskIcon() {
+        return "[T]";
+    }
+
+    public String getTask() {
+        return "[T]" + this.getStatusIcon() + this.description;
     }
 
     public void markAsDone() {
