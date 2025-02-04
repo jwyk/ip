@@ -12,12 +12,8 @@ public class Task {
         return (isDone ? "[X]" : "[ ]"); // mark done task with X
     }
 
-    public String getTaskIcon() {
-        return "[T]";
-    }
-
     public String getTask() {
-        return "[T]" + this.getStatusIcon() + this.description;
+        return "[T]" + this.getStatusIcon() + " " + this.description;
     }
 
     public void markAsDone() {

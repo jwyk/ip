@@ -1,19 +1,16 @@
-public class Event extends Task{
+public class Event extends Task {
     protected String startDate;
     protected String endDate;
 
-    public Event(String description) {
+    public Event(String description, String startDate, String endDate) {
         super(description);
-    }
-
-    @Override
-    public String getTaskIcon() {
-        return "[E]";
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     @Override
     public String getTask() {
-        return "[T]" + this.getStatusIcon() + this.description + "(from: "  + this.startDate + " to: " + this.endDate + ")";
+        return "[E]" + this.getStatusIcon() + this.description + " (from: " + this.startDate + " to: " + this.endDate + ")";
     }
 
     public void setStartDate(String date) {

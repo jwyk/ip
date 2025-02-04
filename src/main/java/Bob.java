@@ -17,10 +17,10 @@ public class Bob {
         //Strip input into position and command
         int taskPosition = input.indexOf(' ');
         String command;
-        int position = -1;
+        int position;
+
         if (taskPosition != -1) {
             command = input.substring(0, input.indexOf(' '));
-            position = Integer.parseInt(input.substring(taskPosition + 1));
         } else {
             command = input;
         }
@@ -39,6 +39,7 @@ public class Bob {
                 System.out.println("Okay, we are checking... this is invalid! No number detected");
             } else {
                 System.out.println("Okay, we are checking... okay marked as done!");
+                position = Integer.parseInt(input.substring(taskPosition + 1));
                 list[position - 1].markAsDone();
                 System.out.println(list[position - 1].getTask());
             }
@@ -48,16 +49,45 @@ public class Bob {
                 System.out.println("Okay, we are checking... this is invalid! No number detected");
             } else {
                 System.out.println("Okay, we are checking... okay unmarked the task!");
+                position = Integer.parseInt(input.substring(taskPosition + 1));
                 list[position - 1].markAsUndone();
                 System.out.println(list[position - 1].getTask());
             }
             break;
-        default:
-            list[current] = new Task(input);
-            System.out.println("added: " + input);
+        case "deadline":
+            //Deadline
+            String dueDate = input.substring(input.indexOf('/') + 1);
+            input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
+            list[current] = new Deadline(input, dueDate);
+            System.out.println("added: " + list[current].getTask());
             current++;
             System.out.println("Current number of tasks: " + current);
             break;
+
+        case "event":
+            //Event
+            String startDate = input.substring(input.indexOf('/') + 1);
+            int endPosition = startDate.indexOf('/') + 1;
+            String endDate = startDate.substring(endPosition);
+            startDate = startDate.substring(0, endPosition - 2);
+            input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
+            list[current] = new Event(input,startDate,endDate);
+            System.out.println("added: " + list[current].getTask());
+            current++;
+            System.out.println("Current number of tasks: " + current);
+            break;
+
+        case "todo":
+            //Task
+            list[current] = new Task(input);
+            System.out.println("added: " + list[current].getTask());
+            current++;
+            System.out.println("Current number of tasks: " + current);
+            break;
+
+        default:
+            //None of the above commands met
+            System.out.println("Sorry, I didn't get that. Will come back to you...");
         }
         System.out.println("____________________________________________________________");
     }
