@@ -32,7 +32,7 @@ public class Bob {
             break;
         case "list":
             for (int i = 0; i < current; i++) {
-                System.out.println(i + 1 + ". " + list.get(i).getTask());
+                System.out.println(i + 1 + ". " + list.get(i));
             }
             break;
         case "mark":
@@ -42,7 +42,8 @@ public class Bob {
                 System.out.println("Okay, we are checking... okay marked as done!");
                 position = Integer.parseInt(input.substring(taskPosition + 1));
                 list.get(position - 1).markAsDone();
-                System.out.println(list.get(position - 1).getTask());
+                System.out.println(list.get(position - 1));
+
             }
             break;
         case "unmark":
@@ -52,7 +53,7 @@ public class Bob {
                 System.out.println("Okay, we are checking... okay unmarked the task!");
                 position = Integer.parseInt(input.substring(taskPosition + 1));
                 list.get(position - 1).markAsUndone();
-                System.out.println(list.get(position - 1).getTask());
+                System.out.println(list.get(position - 1));
             }
             break;
         case "deadline":
@@ -60,7 +61,7 @@ public class Bob {
             String dueDate = input.substring(input.indexOf('/') + 1);
             input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
             list.add(new Deadline(input, dueDate));
-            System.out.println("added: " + list.get(current).getTask());
+            System.out.println("added: " + list.get(current));
             current++;
             System.out.println("Current number of tasks: " + current);
             break;
@@ -73,7 +74,7 @@ public class Bob {
             startDate = startDate.substring(0, endPosition - 2);
             input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
             list.add(new Event(input, startDate, endDate));
-            System.out.println("added: " + list.get(current).getTask());
+            System.out.println("added: " + list.get(current));
             current++;
             System.out.println("Current number of tasks: " + current);
             break;
@@ -81,7 +82,7 @@ public class Bob {
         case "todo":
             //Task
             list.add(new Task(input));
-            System.out.println("added: " + list.get(current).getTask());
+            System.out.println("added: " + list.get(current));
             current++;
             System.out.println("Current number of tasks: " + current);
             break;

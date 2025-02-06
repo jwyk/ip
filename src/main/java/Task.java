@@ -12,7 +12,8 @@ public class Task {
         return (isDone ? "[X]" : "[ ]"); // mark done task with X
     }
 
-    public String getTask() {
+    @Override
+    public String toString() {
         return "[T]" + this.getStatusIcon() + " " + this.description;
     }
 

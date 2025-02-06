@@ -9,7 +9,7 @@ public class Event extends Task {
     }
 
     @Override
-    public String getTask() {
+    public String toString() {
         return "[E]" + this.getStatusIcon() + this.description + " (from: " + this.startDate + " to: " + this.endDate + ")";
     }
 
