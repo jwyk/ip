@@ -7,7 +7,6 @@ public class Bob {
 
     //Initializer for Bob
     public Bob() {
-        current = 0;
         list = new ArrayList<Task>();
     }
 
@@ -31,7 +30,7 @@ public class Bob {
             System.out.println("Bye dude, see you soon again!");
             break;
         case "list":
-            for (int i = 0; i < current; i++) {
+            for (int i = 0; i < list.size(); i++) {
                 System.out.println(i + 1 + ". " + list.get(i));
             }
             break;
@@ -61,9 +60,8 @@ public class Bob {
             String dueDate = input.substring(input.indexOf('/') + 1);
             input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
             list.add(new Deadline(input, dueDate));
-            System.out.println("added: " + list.get(current));
-            current++;
-            System.out.println("Current number of tasks: " + current);
+            System.out.println("added: " + list.get(list.size() - 1));
+            System.out.println("Current number of tasks: " + list.size());
             break;
 
         case "event":
@@ -74,17 +72,15 @@ public class Bob {
             startDate = startDate.substring(0, endPosition - 2);
             input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
             list.add(new Event(input, startDate, endDate));
-            System.out.println("added: " + list.get(current));
-            current++;
-            System.out.println("Current number of tasks: " + current);
+            System.out.println("added: " + list.get(list.size() - 1));
+            System.out.println("Current number of tasks: " + list.size());
             break;
 
         case "todo":
             //Task
             list.add(new Task(input));
-            System.out.println("added: " + list.get(current));
-            current++;
-            System.out.println("Current number of tasks: " + current);
+            System.out.println("added: " + list.get(list.size() - 1));
+            System.out.println("Current number of tasks: " + list.size());
             break;
 
         default:

@@ -8,7 +8,7 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        return "[D]" + getStatusIcon() + this.description + " (by: " + this.dueDate + ")";
+        return "[D]" + getStatusIcon() + " " + this.description + " (by: " + this.dueDate + ")";
     }
 
     public void setDueDate(String date) {
