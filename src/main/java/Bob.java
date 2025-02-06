@@ -1,13 +1,14 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Bob {
     private static int current;
-    private static Task[] list;
+    private static ArrayList<Task> list;
 
     //Initializer for Bob
     public Bob() {
         current = 0;
-        list = new Task[100];
+        list = new ArrayList<Task>();
     }
 
     //Takes in a string input and prints outputs depending on the input string
@@ -31,7 +32,7 @@ public class Bob {
             break;
         case "list":
             for (int i = 0; i < current; i++) {
-                System.out.println(i + 1 + ". " + list[i].getTask());
+                System.out.println(i + 1 + ". " + list.get(i).getTask());
             }
             break;
         case "mark":
@@ -40,8 +41,8 @@ public class Bob {
             } else {
                 System.out.println("Okay, we are checking... okay marked as done!");
                 position = Integer.parseInt(input.substring(taskPosition + 1));
-                list[position - 1].markAsDone();
-                System.out.println(list[position - 1].getTask());
+                list.get(position - 1).markAsDone();
+                System.out.println(list.get(position - 1).getTask());
             }
             break;
         case "unmark":
@@ -50,16 +51,16 @@ public class Bob {
             } else {
                 System.out.println("Okay, we are checking... okay unmarked the task!");
                 position = Integer.parseInt(input.substring(taskPosition + 1));
-                list[position - 1].markAsUndone();
-                System.out.println(list[position - 1].getTask());
+                list.get(position - 1).markAsUndone();
+                System.out.println(list.get(position - 1).getTask());
             }
             break;
         case "deadline":
             //Deadline
             String dueDate = input.substring(input.indexOf('/') + 1);
             input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
-            list[current] = new Deadline(input, dueDate);
-            System.out.println("added: " + list[current].getTask());
+            list.add(new Deadline(input, dueDate));
+            System.out.println("added: " + list.get(current).getTask());
             current++;
             System.out.println("Current number of tasks: " + current);
             break;
@@ -71,16 +72,16 @@ public class Bob {
             String endDate = startDate.substring(endPosition);
             startDate = startDate.substring(0, endPosition - 2);
             input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
-            list[current] = new Event(input,startDate,endDate);
-            System.out.println("added: " + list[current].getTask());
+            list.add(new Event(input, startDate, endDate));
+            System.out.println("added: " + list.get(current).getTask());
             current++;
             System.out.println("Current number of tasks: " + current);
             break;
 
         case "todo":
             //Task
-            list[current] = new Task(input);
-            System.out.println("added: " + list[current].getTask());
+            list.add(new Task(input));
+            System.out.println("added: " + list.get(current).getTask());
             current++;
             System.out.println("Current number of tasks: " + current);
             break;
