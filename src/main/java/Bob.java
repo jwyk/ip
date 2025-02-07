@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Bob {
-    private static int current;
     private static ArrayList<Task> list;
 
     //Initializer for Bob
@@ -97,7 +96,7 @@ public class Bob {
         System.out.println("____________________________________________________________");
 
         //Initialise input variables
-        String line = "";
+        String line;
         Scanner in = new Scanner(System.in);
         Bob Tasks = new Bob();
 
