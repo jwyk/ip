@@ -1,0 +1,7 @@
+todo CS2113 Tutorial
+deadline EE2026 Lab 1 /2 Feb
+event EE2211 Midterm /5pm /6pm
+list
+mark 1
+list
+bye

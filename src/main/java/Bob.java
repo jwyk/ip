@@ -78,6 +78,7 @@ public class Bob {
 
         case "todo":
             //Task
+            input = input.substring(taskPosition + 1);
             list.add(new Task(input));
             System.out.println("added: " + list.get(list.size() - 1));
             System.out.println("Current number of tasks: " + list.size());
@@ -96,13 +97,12 @@ public class Bob {
         System.out.println("____________________________________________________________");
 
         //Initialise input variables
-        String line;
-        Scanner in;
+        String line = "";
+        Scanner in = new Scanner(System.in);
         Bob Tasks = new Bob();
 
         //Handle Cases
         do {
-            in = new Scanner(System.in);
             line = in.nextLine();
             parseString(line);
         } while (!line.equals("bye"));
