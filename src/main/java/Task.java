@@ -1,16 +1,16 @@
 /**
- * Represent a todo task with a description, and completion status
+ * Represent a task with a description, and completion status
  */
 
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isDone;
 
     /**
-     * Constructs a todo task with a description, start date and end date
+     * Constructs a task with a description, start date and end date
      * By default, sets isDone to false
      *
-     * @param description Todo details
+     * @param description Task details
      */
 
     public Task(String description) {
@@ -28,10 +28,7 @@ public class Task {
     /**
      * Returns a String representation of the todo task
      */
-    @Override
-    public String toString() {
-        return "[T]" + this.getStatusIcon() + " " + this.description;
-    }
+    public abstract String toString();
 
     /**
      * Marks completion status as done
