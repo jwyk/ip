@@ -2,6 +2,16 @@ import java.util.ArrayList;
 
 public class Parser {
 
+    /**
+     * String constants for each command type
+     */
+    private static final String COMMAND_BYE = "bye";
+    private static final String COMMAND_LIST = "list";
+    private static final String COMMAND_MARK = "mark";
+    private static final String COMMAND_UNMARK = "unmark";
+    private static final String COMMAND_DEADLINE = "deadline";
+    private static final String COMMAND_TODO = "todo";
+    private static final String COMMAND_EVENT = "event";
 
     /**
      * Process the string input to different commands
@@ -9,27 +19,31 @@ public class Parser {
      * @param input    User's input as a string
      * @param taskList Due Date/time
      */
-
     public static void parseString(String input, ArrayList<Task> taskList) {
         System.out.println("____________________________________________________________");
 
         //Strip input into position and command
         String[] inputArray = input.split(" ");
         String command = inputArray[0];
-        //inputArray.length() == 0 ? command = input.substring(0, input.indexOf(' ')) : command = input;
         int taskPosition = input.indexOf(' ');
         int position;
 
         switch (command) {
-        case "bye":
+        case COMMAND_BYE:
             System.out.println("Bye dude, see you soon again!");
             break;
-        case "list":
-            for (int i = 0; i < taskList.size(); i++) {
-                System.out.println(i + 1 + ". " + taskList.get(i));
+
+        case COMMAND_LIST:
+            if (taskList.isEmpty()) {
+                System.out.println("There are no tasks. Maybe add a few more.");
+            } else {
+                for (int i = 0; i < taskList.size(); i++) {
+                    System.out.println(i + 1 + ". " + taskList.get(i));
+                }
             }
             break;
-        case "mark":
+
+        case COMMAND_MARK:
             try {
                 position = convertToInt(input, taskPosition);
                 taskList.get(position - 1).markAsDone();
@@ -43,7 +57,8 @@ public class Parser {
                         "You didn't give a proper number. Maybe try typing it properly.");
             }
             break;
-        case "unmark":
+
+        case COMMAND_UNMARK:
             try {
                 position = convertToInt(input, taskPosition);
                 taskList.get(position - 1).markAsUndone();
@@ -57,8 +72,8 @@ public class Parser {
                         "You didn't give a proper number. Maybe try typing it properly.");
             }
             break;
-        case "deadline":
-            //Deadline
+
+        case COMMAND_DEADLINE:
             String dueDate = input.substring(input.indexOf('/') + 1);
             input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
             taskList.add(new Deadline(input, dueDate));
@@ -66,8 +81,7 @@ public class Parser {
             System.out.println("Current number of tasks: " + taskList.size());
             break;
 
-        case "event":
-            //Event
+        case COMMAND_EVENT:
             String startDate = input.substring(input.indexOf('/') + 1);
             int endPosition = startDate.indexOf('/') + 1;
             String endDate = startDate.substring(endPosition);
@@ -78,8 +92,7 @@ public class Parser {
             System.out.println("Current number of tasks: " + taskList.size());
             break;
 
-        case "todo":
-            //Task
+        case COMMAND_TODO:
             input = input.substring(taskPosition + 1);
             taskList.add(new Todo(input));
             System.out.println("added: " + taskList.get(taskList.size() - 1));
@@ -94,13 +107,12 @@ public class Parser {
     }
 
     /**
-     * Return an integer version of the given task
+     * Return an integer of the task you want to mark
      *
      * @param input        User's input as a string
      * @param taskPosition Position of the first space
      * @return Integer of the task
      */
-
     private static int convertToInt(String input, int taskPosition) {
         return Integer.parseInt(input.substring(taskPosition + 1));
     }
