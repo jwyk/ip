@@ -71,7 +71,7 @@ public class Parser {
         case COMMAND_MARK, COMMAND_UNMARK:
             if (taskPosition == -1) {
                 throw new BobException("Okay we are checking... there's no number." +
-                        "Please type a number.");
+                        "Please type a number."); //Alphabetical input
             }
             position = convertToInt(input, taskPosition);
             if (taskList.size() >= position && position > 0) {
@@ -84,30 +84,54 @@ public class Parser {
                 System.out.println(taskList.get(position - 1));
             } else {
                 throw new BobException("Okay, we are checking... there is an invalid number! " +
-                        "Type something within the list range.");
+                        "Type something within the list range."); //Not within list range
             }
             break;
 
         case COMMAND_DEADLINE:
-            String dueDate = input.substring(input.indexOf('/') + 1);
-            input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
-            taskList.add(new Deadline(input, dueDate));
+            if (taskPosition == -1) {
+                throw new BobException("Okay we are checking... there's no description." +
+                        "Please add a description."); //Missing space before description
+            }
+
+            String[] dueArray = input.substring(taskPosition).split("/by ", 2); //Split the description and deadline
+            if (dueArray.length != 2) {
+                throw new BobException("Okay, we are checking... you didn't type in /by to demarcate the deadline." +
+                        " Please write it.");
+            }
+            String description = dueArray[0].trim();
+            String dueDate = dueArray[1].trim();
+            taskList.add(new Deadline(description, dueDate));
             System.out.println("added: " + taskList.get(taskList.size() - 1));
             System.out.println("Current number of tasks: " + taskList.size());
             break;
 
         case COMMAND_EVENT:
-            String startDate = input.substring(input.indexOf('/') + 1);
-            int endPosition = startDate.indexOf('/') + 1;
-            String endDate = startDate.substring(endPosition);
-            startDate = startDate.substring(0, endPosition - 2);
-            input = input.substring(taskPosition + 1, input.indexOf('/') - 1);
-            taskList.add(new Event(input, startDate, endDate));
+            if (taskPosition == -1) {
+                throw new BobException("Okay we are checking... there's no description." +
+                        "Please add a description."); //Missing space before description
+            }
+            String[] eventArray = input.substring(taskPosition).split("/from ", 2); //Split the description and deadline
+            String eventName = eventArray[0].trim();
+            String[] fromToArray = eventArray[1].split(" /to", 2);
+
+            if (eventArray.length != 2 || fromToArray.length != 2) {
+               throw new BobException("Okay we are checking... there's no from/to." +
+                       "Please add /from and /to to demarcate the duration of the event.");
+            }
+
+            String startDate = fromToArray[0].trim();
+            String endDate = fromToArray[1].trim();
+            taskList.add(new Event(eventName, startDate, endDate));
             System.out.println("added: " + taskList.get(taskList.size() - 1));
             System.out.println("Current number of tasks: " + taskList.size());
             break;
 
         case COMMAND_TODO:
+            if (taskPosition == -1) {
+                throw new BobException("Okay we are checking... there's no description." +
+                        "Please add a description."); //Missing description
+            }
             input = input.substring(taskPosition + 1);
             taskList.add(new Todo(input));
             System.out.println("added: " + taskList.get(taskList.size() - 1));
