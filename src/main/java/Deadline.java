@@ -26,8 +26,4 @@ public class Deadline extends Task {
         return "[D]" + getStatusIcon() + " " + this.description + " (by: " + this.dueDate + ")";
     }
 
-    public void setDueDate(String date) {
-        this.dueDate = date;
-    }
-
 }

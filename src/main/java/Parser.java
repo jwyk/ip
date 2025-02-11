@@ -19,7 +19,7 @@ public class Parser {
      * @param input    User's input as a string
      * @param taskList Due Date/time
      */
-    public static void parseString(String input, ArrayList<Task> taskList) {
+    public static void parseString(String input, ArrayList<Task> taskList) throws BobException {
         System.out.println("____________________________________________________________");
 
         //Strip input into position and command
