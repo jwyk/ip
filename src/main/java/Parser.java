@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Parser {
 
@@ -14,6 +15,30 @@ public class Parser {
     private static final String COMMAND_EVENT = "event";
 
     /**
+     * Poll the CLI for user inputs until a COMMAND_BYE event is triggered
+     *
+     * @param taskList ArrayList containing Tasks
+     */
+
+    public static void getInput(ArrayList<Task> taskList) {
+        //Initialise input variables
+        String line;
+        Scanner in = new Scanner(System.in);
+
+        //Handle Cases, until the COMMAND_BYE is detected
+        do {
+            line = in.nextLine();
+            try {
+                parseString(line, taskList); //Parse inputs into different categories
+            } catch (BobException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (!line.toLowerCase().startsWith(COMMAND_BYE));
+
+    }
+
+
+    /**
      * Process the string input to different commands
      *
      * @param input    User's input as a string
@@ -23,8 +48,8 @@ public class Parser {
         System.out.println("____________________________________________________________");
 
         //Strip input into position and command
-        String[] inputArray = input.split(" ");
-        String command = inputArray[0];
+        String[] inputArray = input.split(" ", 2);
+        String command = inputArray[0].toLowerCase();
         int taskPosition = input.indexOf(' ');
         int position;
 
@@ -43,33 +68,23 @@ public class Parser {
             }
             break;
 
-        case COMMAND_MARK:
-            try {
-                position = convertToInt(input, taskPosition);
-                taskList.get(position - 1).markAsDone();
-                System.out.println("Okay, we are checking... okay marked as done!");
-                System.out.println(taskList.get(position - 1));
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("Okay, we are checking... there is an invalid number! " +
-                        "Either you didn't type the number, or it's out of the range we have.");
-            } catch (NumberFormatException e) {
-                System.out.println("Okay, we are checking... that's not a number! " +
-                        "You didn't give a proper number. Maybe try typing it properly.");
+        case COMMAND_MARK, COMMAND_UNMARK:
+            if (taskPosition == -1) {
+                throw new BobException("Okay we are checking... there's no number." +
+                        "Please type a number.");
             }
-            break;
-
-        case COMMAND_UNMARK:
-            try {
-                position = convertToInt(input, taskPosition);
-                taskList.get(position - 1).markAsUndone();
-                System.out.println("Okay, we are checking... okay unmarked the task!");
+            position = convertToInt(input, taskPosition);
+            if (taskList.size() >= position && position > 0) {
+                if (command.equals(COMMAND_MARK)) {
+                    taskList.get(position - 1).markAsDone();
+                } else {
+                    taskList.get(position - 1).markAsUndone();
+                }
+                System.out.println("Okay, we are checking... done! Task " + command + "ed.");
                 System.out.println(taskList.get(position - 1));
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("Okay, we are checking... there is an invalid number! " +
-                        "Either you didn't type the number, or it's out of the range we have.");
-            } catch (NumberFormatException e) {
-                System.out.println("Okay, we are checking... that's not a number! " +
-                        "You didn't give a proper number. Maybe try typing it properly.");
+            } else {
+                throw new BobException("Okay, we are checking... there is an invalid number! " +
+                        "Type something within the list range.");
             }
             break;
 
@@ -113,8 +128,14 @@ public class Parser {
      * @param taskPosition Position of the first space
      * @return Integer of the task
      */
-    private static int convertToInt(String input, int taskPosition) {
-        return Integer.parseInt(input.substring(taskPosition + 1));
+    private static int convertToInt(String input, int taskPosition) throws BobException {
+        try {
+            return Integer.parseInt(input.substring(taskPosition + 1));
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+            throw new BobException("Okay, we are checking.. there is an invalid number!" +
+                    " This isn't a number, type a proper digit.");
+        }
     }
 
 }

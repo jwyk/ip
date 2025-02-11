@@ -16,16 +16,8 @@ public class Bob {
         System.out.println("Hello I'm Bob\n" + "What can I do for you?");
         System.out.println("____________________________________________________________");
 
-        //Initialise input variables
-        String line;
-        Scanner in = new Scanner(System.in);
         Bob Tasks = new Bob();
-
-        //Handle Cases
-        do {
-            line = in.nextLine();
-            Parser.parseString(line, list);
-        } while (!line.equals("bye"));
+        Parser.getInput(list);
 
     }
 }
