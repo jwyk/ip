@@ -20,7 +20,7 @@ ____________________________________________________________
 3. [E][ ] EE2211 Midterm (from: 5pm to: 6pm)
 ____________________________________________________________
 ____________________________________________________________
-Okay, we are checking... okay marked as done!
+Okay, we are checking... done! Task marked.
 [T][X] CS2113 Tutorial
 ____________________________________________________________
 ____________________________________________________________
@@ -28,6 +28,27 @@ ____________________________________________________________
 2. [D][ ] EE2026 Lab 1 (by: 2 Feb)
 3. [E][ ] EE2211 Midterm (from: 5pm to: 6pm)
 ____________________________________________________________
+____________________________________________________________
+Okay, we are checking... done! Task unmarked.
+[T][ ] CS2113 Tutorial
+____________________________________________________________
+____________________________________________________________
+1. [T][ ] CS2113 Tutorial
+2. [D][ ] EE2026 Lab 1 (by: 2 Feb)
+3. [E][ ] EE2211 Midterm (from: 5pm to: 6pm)
+____________________________________________________________
+____________________________________________________________
+Okay we are checking... there's no to.Please add /to to demarcate the duration of the event.
+____________________________________________________________
+Okay we are checking... there's no from.Please add /from to demarcate the duration of the event.
+____________________________________________________________
+Okay, we are checking... you didn't type in /by to demarcate the deadline. Please write it.
+____________________________________________________________
+Okay, we are checking... there is an invalid number! Type something within the list range.
+____________________________________________________________
+Okay, we are checking... there is an invalid number! Type something within the list range.
+____________________________________________________________
+Okay, we are checking... there is an invalid number! Type something within the list range.
 ____________________________________________________________
 Bye dude, see you soon again!
 ____________________________________________________________
