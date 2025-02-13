@@ -1,7 +1,15 @@
 todo CS2113 Tutorial
-deadline EE2026 Lab 1 /2 Feb
-event EE2211 Midterm /5pm /6pm
+deadline EE2026 Lab 1 /by 2 Feb
+event EE2211 Midterm /from 5pm /to 6pm
 list
 mark 1
 list
+unmark 1
+list
+event EE2211 Midterm /from 5pm to 6pm
+event EE2211 Midterm from 5pm /to 6pm
+deadline EE2026 Lab 1 by 2 Feb
+mark -1
+mark 0
+mark 5
 bye
