@@ -20,6 +20,7 @@ public class Parser {
     private static final String COMMAND_DEADLINE = "deadline";
     private static final String COMMAND_TODO = "todo";
     private static final String COMMAND_EVENT = "event";
+    private static final String COMMAND_DELETE = "delete";
 
     /**
      * Poll the CLI for user inputs until a COMMAND_BYE event is triggered
@@ -89,6 +90,23 @@ public class Parser {
                 }
                 System.out.println("Okay, we are checking... done! Task " + command + "ed.");
                 System.out.println(taskList.get(position - 1));
+            } else {
+                throw new BobException("Okay, we are checking... there is an invalid number! " +
+                        "Type something within the list range."); //Not within list range
+            }
+            break;
+
+        case COMMAND_DELETE:
+            if (taskPosition == -1) {
+                throw new BobException("Okay we are checking... there's no number." +
+                        "Please add a task number to be deleted."); //Missing space before description
+            }
+            position = convertToInt(input, taskPosition);
+            if (taskList.size() >= position && position > 0) {
+                System.out.println("Okay, we are checking... done! The following task has been deleted.");
+                System.out.println(taskList.get(position - 1));
+                taskList.remove(position - 1);
+                System.out.println("There are now " + taskList.size() + " tasks in the list");
             } else {
                 throw new BobException("Okay, we are checking... there is an invalid number! " +
                         "Type something within the list range."); //Not within list range
