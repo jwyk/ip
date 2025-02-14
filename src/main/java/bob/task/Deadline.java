@@ -1,3 +1,5 @@
+package bob.task;
+
 /**
  * Represent a deadline task with a description, and due date
  */

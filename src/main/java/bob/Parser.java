@@ -1,5 +1,12 @@
+package bob;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import bob.task.Deadline;
+import bob.task.Event;
+import bob.task.Task;
+import bob.task.Todo;
 
 public class Parser {
 
