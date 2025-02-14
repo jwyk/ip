@@ -1,5 +1,8 @@
-import java.util.Scanner;
+package bob;
+
 import java.util.ArrayList;
+
+import bob.task.Task;
 
 public class Bob {
     private static ArrayList<Task> list;

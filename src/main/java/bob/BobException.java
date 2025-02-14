@@ -1,3 +1,5 @@
+package bob;
+
 /**
  * Custom exception class for exceptions specific to Bob.
  * The BobException class extends the built-in Exception class

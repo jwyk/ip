@@ -1,3 +1,5 @@
+package bob.task;
+
 /**
  * Represent a task with a description, and completion status
  */
@@ -26,7 +28,7 @@ public abstract class Task {
     }
 
     /**
-     * Returns a String representation of the todo task
+     * Returns a String representation of the task
      */
     public abstract String toString();
 

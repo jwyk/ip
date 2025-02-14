@@ -1,3 +1,5 @@
+package bob.task;
+
 /**
  * Represent a todo task with a description, and completion status
  */
