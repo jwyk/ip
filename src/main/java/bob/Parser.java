@@ -1,5 +1,6 @@
 package bob;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -37,7 +38,7 @@ public class Parser {
             line = in.nextLine();
             try {
                 parseString(line, taskList); //Parse inputs into different categories
-            } catch (BobException e) {
+            } catch (BobException | IOException e) {
                 System.out.println(e.getMessage());
             }
         } while (!line.toLowerCase().startsWith(COMMAND_BYE));
@@ -51,7 +52,7 @@ public class Parser {
      * @param input    User's input as a string
      * @param taskList Due Date/time
      */
-    public static void parseString(String input, ArrayList<Task> taskList) throws BobException {
+    public static void parseString(String input, ArrayList<Task> taskList) throws BobException, IOException {
         System.out.println("____________________________________________________________");
 
         //Strip input into position and command
@@ -93,6 +94,7 @@ public class Parser {
                 throw new BobException("Okay, we are checking... there is an invalid number! " +
                         "Type something within the list range."); //Not within list range
             }
+            Storage.save(taskList);
             break;
 
         case COMMAND_DEADLINE:
@@ -111,6 +113,7 @@ public class Parser {
             taskList.add(new Deadline(description, dueDate));
             System.out.println("added: " + taskList.get(taskList.size() - 1));
             System.out.println("Current number of tasks: " + taskList.size());
+            Storage.save(taskList);
             break;
 
         case COMMAND_EVENT:
@@ -138,6 +141,7 @@ public class Parser {
             taskList.add(new Event(eventName, startDate, endDate));
             System.out.println("added: " + taskList.get(taskList.size() - 1));
             System.out.println("Current number of tasks: " + taskList.size());
+            Storage.save(taskList);
             break;
 
         case COMMAND_TODO:
@@ -149,6 +153,7 @@ public class Parser {
             taskList.add(new Todo(input));
             System.out.println("added: " + taskList.get(taskList.size() - 1));
             System.out.println("Current number of tasks: " + taskList.size());
+            Storage.save(taskList);
             break;
 
         default:
