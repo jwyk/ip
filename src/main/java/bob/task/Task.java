@@ -45,4 +45,11 @@ public abstract class Task {
     public void markAsUndone() {
         this.isDone = false;
     }
+
+    /**
+     * Returns the description of a task
+     */
+    public String getDescription() {
+        return description;
+    }
 }

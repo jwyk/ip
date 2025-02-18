@@ -29,4 +29,18 @@ public class Event extends Task {
         return "[E]" + this.getStatusIcon() + " " + this.description + " (from: " + this.startDate + " to: " + this.endDate + ")";
     }
 
+    /**
+     * Returns the start date of an event
+     */
+    public String getStartDate() {
+        return startDate;
+    }
+
+    /**
+     * Returns the start date of an event
+     */
+    public String getEndDate() {
+        return endDate;
+    }
+
 }
