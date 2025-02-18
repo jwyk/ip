@@ -52,4 +52,11 @@ public abstract class Task {
     public String getDescription() {
         return description;
     }
+
+    /**
+     * Returns the status of a task
+     */
+    public boolean getStatus() {
+        return isDone;
+    }
 }
