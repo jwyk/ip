@@ -28,4 +28,10 @@ public class Deadline extends Task {
         return "[D]" + getStatusIcon() + " " + this.description + " (by: " + this.dueDate + ")";
     }
 
+    /**
+     * Returns the due date of a deadline
+     */
+    public String getDueDate() {
+        return dueDate;
+    }
 }
