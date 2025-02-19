@@ -24,7 +24,7 @@ import bob.task.Todo;
  */
 
 public class Storage {
-    private static final String filePath = "data/bob.txt";
+    private static final String filePath = "bob.txt";
     private static final String DIV = "|";
 
     /**
