@@ -113,6 +113,7 @@ public class Parser {
                 throw new BobException("Okay, we are checking... there is an invalid number! " +
                         "Type something within the list range."); //Not within list range
             }
+            Storage.save(taskList);
             break;
 
         case COMMAND_DEADLINE:
