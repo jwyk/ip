@@ -1,10 +1,8 @@
 package bob;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import bob.task.Deadline;
@@ -42,7 +40,7 @@ public class Storage {
      * @param list ArrayList containing Tasks
      */
 
-    public static void save(ArrayList<Task> list) throws BobException, IOException {
+    public static void save(TaskList list) throws BobException, IOException {
         File f = new File(filePath);
         FileWriter fw = new FileWriter(filePath);
         try {
@@ -64,8 +62,6 @@ public class Storage {
                 fw.write("\n");
             }
             fw.close();
-        } catch (FileNotFoundException e) {
-            throw new BobException("File not found.");
         } catch (IOException e) {
             throw new BobException(e.getMessage());
         }
@@ -78,7 +74,7 @@ public class Storage {
      * @param list ArrayList containing Tasks
      */
 
-    public static void load(ArrayList<Task> list) throws BobException, IOException {
+    public static void load(TaskList list) throws IOException {
         File f = new File(filePath);
         Scanner scanner = new Scanner(f);
 

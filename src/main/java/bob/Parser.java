@@ -1,13 +1,12 @@
 package bob;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import bob.task.Deadline;
 import bob.task.Event;
-import bob.task.Task;
 import bob.task.Todo;
+
 
 public class Parser {
 
@@ -29,7 +28,7 @@ public class Parser {
      * @param taskList ArrayList containing Tasks
      */
 
-    public static void getInput(ArrayList<Task> taskList) {
+    public static void getInput(TaskList taskList) {
         //Initialise input variables
         String line;
         Scanner in = new Scanner(System.in);
@@ -51,9 +50,9 @@ public class Parser {
      * Process the string input to different commands
      *
      * @param input    User's input as a string
-     * @param taskList Due Date/time
+     * @param taskList TaskList containing all tasks
      */
-    public static void parseString(String input, ArrayList<Task> taskList) throws BobException, IOException {
+    public static void parseString(String input, TaskList taskList) throws BobException, IOException {
         System.out.println("____________________________________________________________");
 
         //Strip input into position and command
@@ -68,13 +67,7 @@ public class Parser {
             break;
 
         case COMMAND_LIST:
-            if (taskList.isEmpty()) {
-                System.out.println("There are no tasks. Maybe add a few more.");
-            } else {
-                for (int i = 0; i < taskList.size(); i++) {
-                    System.out.println(i + 1 + ". " + taskList.get(i));
-                }
-            }
+            taskList.list();
             break;
 
         case COMMAND_MARK, COMMAND_UNMARK:
