@@ -1,4 +1,4 @@
-package bob.task;
+package bob.tasks;
 
 /**
  * Represent an event task with a start and end date

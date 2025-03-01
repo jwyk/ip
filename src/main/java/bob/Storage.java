@@ -5,10 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import bob.task.Deadline;
-import bob.task.Event;
-import bob.task.Task;
-import bob.task.Todo;
+import bob.tasks.Deadline;
+import bob.tasks.Event;
+import bob.tasks.Task;
+import bob.tasks.Todo;
 
 /**
  * Represents a storage class which saves in the following format
@@ -44,7 +44,7 @@ public class Storage {
         File f = new File(filePath);
         FileWriter fw = new FileWriter(filePath);
         try {
-            for (Task temp : list) {
+            for (Task temp : list.taskList) {
                 //Handle saving each respective task type
                 if (temp instanceof Todo) {
                     fw.write("T" + DIV + temp.getStatus() +

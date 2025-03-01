@@ -1,4 +1,4 @@
-package bob.task;
+package bob.tasks;
 
 /**
  * Represent a deadline task with a description, and due date
