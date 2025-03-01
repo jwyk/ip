@@ -20,6 +20,9 @@ java -classpath ..\bin bob.Bob < input.txt > ACTUAL.TXT
 REM compare the output to the expected output
 FC ACTUAL.TXT EXPECTED.TXT
 
+REM Delete bob.txt if it exists, as this will affect the results
+if exist "bob.txt" del "bob.txt"
+
 IF ERRORLEVEL 1 (
     echo ********** TEST FAILED **********
     echo The contents of ACTUAL.TXT and EXPECTED.TXT do not match.
@@ -29,3 +32,4 @@ IF ERRORLEVEL 1 (
     echo The contents of ACTUAL.TXT and EXPECTED.TXT match.
     exit /b 0
 )
+

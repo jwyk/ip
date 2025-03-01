@@ -3,14 +3,17 @@ Hello I'm Bob
 What can I do for you?
 ____________________________________________________________
 ____________________________________________________________
+Okay, we are checking... done! Task added.
 added: [T][ ] CS2113 Tutorial
 Current number of tasks: 1
 ____________________________________________________________
 ____________________________________________________________
+Okay, we are checking... done! Task added.
 added: [D][ ] EE2026 Lab 1 (by: 2 Feb)
 Current number of tasks: 2
 ____________________________________________________________
 ____________________________________________________________
+Okay, we are checking... done! Task added.
 added: [E][ ] EE2211 Midterm (from: 5pm to: 6pm)
 Current number of tasks: 3
 ____________________________________________________________
@@ -44,11 +47,12 @@ Okay we are checking... there's no from.Please add /from to demarcate the durati
 ____________________________________________________________
 Okay, we are checking... you didn't type in /by to demarcate the deadline. Please write it.
 ____________________________________________________________
-Okay, we are checking... there is an invalid number! Type something within the list range.
+Okay we are checking... there's no number.Please type a number.
 ____________________________________________________________
 Okay, we are checking... there is an invalid number! Type something within the list range.
 ____________________________________________________________
 Okay, we are checking... there is an invalid number! Type something within the list range.
 ____________________________________________________________
 Bye dude, see you soon again!
+____________________________________________________________
 ____________________________________________________________
