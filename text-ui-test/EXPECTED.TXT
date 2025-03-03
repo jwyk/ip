@@ -8,19 +8,11 @@ added: [T][ ] CS2113 Tutorial
 Current number of tasks: 1
 ____________________________________________________________
 ____________________________________________________________
-Okay, we are checking... done! Task added.
-added: [D][ ] EE2026 Lab 1 (by: 2 Feb)
-Current number of tasks: 2
+The date and time input is not in the correctformat. Please input it in: YYYY/MM/dd HHmm
 ____________________________________________________________
-____________________________________________________________
-Okay, we are checking... done! Task added.
-added: [E][ ] EE2211 Midterm (from: 5pm to: 6pm)
-Current number of tasks: 3
-____________________________________________________________
+The date and time input is not in the correctformat. Please input it in: YYYY/MM/dd HHmm
 ____________________________________________________________
 1. [T][ ] CS2113 Tutorial
-2. [D][ ] EE2026 Lab 1 (by: 2 Feb)
-3. [E][ ] EE2211 Midterm (from: 5pm to: 6pm)
 ____________________________________________________________
 ____________________________________________________________
 Okay, we are checking... done! Task marked.
@@ -28,8 +20,6 @@ Okay, we are checking... done! Task marked.
 ____________________________________________________________
 ____________________________________________________________
 1. [T][X] CS2113 Tutorial
-2. [D][ ] EE2026 Lab 1 (by: 2 Feb)
-3. [E][ ] EE2211 Midterm (from: 5pm to: 6pm)
 ____________________________________________________________
 ____________________________________________________________
 Okay, we are checking... done! Task unmarked.
@@ -37,8 +27,6 @@ Okay, we are checking... done! Task unmarked.
 ____________________________________________________________
 ____________________________________________________________
 1. [T][ ] CS2113 Tutorial
-2. [D][ ] EE2026 Lab 1 (by: 2 Feb)
-3. [E][ ] EE2211 Midterm (from: 5pm to: 6pm)
 ____________________________________________________________
 ____________________________________________________________
 Okay we are checking... there's no to.Please add /to to demarcate the duration of the event.
@@ -53,6 +41,8 @@ Okay, we are checking... there is an invalid number! Type something within the l
 ____________________________________________________________
 Okay, we are checking... there is an invalid number! Type something within the list range.
 ____________________________________________________________
-Bye dude, see you soon again!
+No tasks contain matching keyword "EE2211"
 ____________________________________________________________
+____________________________________________________________
+Bye dude, see you soon again!
 ____________________________________________________________

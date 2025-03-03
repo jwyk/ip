@@ -12,4 +12,5 @@ deadline EE2026 Lab 1 by 2 Feb
 mark -1
 mark 0
 mark 5
+find EE2211
 bye
