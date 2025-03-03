@@ -9,6 +9,7 @@ import bob.commands.Command;
 import bob.commands.DeadlineCommand;
 import bob.commands.DeleteCommand;
 import bob.commands.EventCommand;
+import bob.commands.FindCommand;
 import bob.commands.ListCommand;
 import bob.commands.MarkCommand;
 import bob.commands.TodoCommand;
@@ -66,6 +67,7 @@ public class Parser {
             case TODO -> new TodoCommand(input);
             case DEADLINE -> new DeadlineCommand(input);
             case EVENT -> new EventCommand(input);
+            case FIND -> new FindCommand(input);
             default -> throw new BobException("Sorry, I didn't get that. Will come back to you...");
         };
     }

@@ -1,6 +1,7 @@
 package bob;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import bob.tasks.Task;
 
@@ -112,4 +113,21 @@ public class TaskList {
     public Task get(int index) {
         return taskList.get(index);
     }
+
+
+    /**
+     * Finds and returns a list of tasks that contains the keyword
+     *
+     * @param keyword The keyword the filtered tasks should contain
+     */
+    public List<Task> find(String keyword) {
+        List<Task> tasks = new ArrayList<Task>();
+        for (Task task: taskList) {
+            if (task.getDescription().contains(keyword)) {
+                tasks.add(task);
+            }
+        }
+        return tasks;
+    }
+
 }
