@@ -2,6 +2,7 @@ package bob;
 
 import java.io.IOException;
 
+import bob.parser.Parser;
 import bob.ui.Ui;
 
 public class Bob {

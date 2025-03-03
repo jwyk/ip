@@ -1,8 +1,11 @@
-package bob;
+package bob.parser;
 
 import java.io.IOException;
 import java.util.Scanner;
 
+import bob.BobException;
+import bob.Storage;
+import bob.TaskList;
 import bob.commands.Action;
 import bob.commands.ByeCommand;
 import bob.commands.Command;

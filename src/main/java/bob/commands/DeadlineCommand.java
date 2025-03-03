@@ -1,8 +1,12 @@
 package bob.commands;
 
+import java.time.LocalDateTime;
+
 import bob.BobException;
 import bob.TaskList;
+import bob.parser.DateParser;
 import bob.tasks.Deadline;
+import bob.tasks.Event;
 import bob.ui.Ui;
 
 public class DeadlineCommand extends Command {
@@ -22,7 +26,14 @@ public class DeadlineCommand extends Command {
         }
         String description = dueArray[0].trim();
         String dueDate = dueArray[1].trim();
-        task = new Deadline(description, dueDate);
+
+        LocalDateTime dueLocalDateTime = DateParser.getDate(dueDate);
+        if (dueLocalDateTime == null) {
+            throw new BobException("The date and time input is not in the correct" +
+                    "format. Please input it in: YYYY/MM/dd HHmm");
+        }
+
+        task = new Deadline(description, dueLocalDateTime);
     }
 
     @Override
