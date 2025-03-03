@@ -53,9 +53,6 @@ Okay, we are checking... there is an invalid number! Type something within the l
 ____________________________________________________________
 Okay, we are checking... there is an invalid number! Type something within the list range.
 ____________________________________________________________
-Got it. Found the tasks matching the description "EE2211"
-1.[E][ ] EE2211 Midterm (from: 5pm to: 6pm)
-____________________________________________________________
-____________________________________________________________
 Bye dude, see you soon again!
+____________________________________________________________
 ____________________________________________________________

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.time.LocalDateTime;
 
 import bob.tasks.Deadline;
 import bob.tasks.Event;
@@ -90,14 +91,17 @@ public class Storage {
                 list.add(tempTodo);
                 break;
             case "D":
-                Deadline tempDeadline = new Deadline(temp[2], temp[3]);
+                Deadline tempDeadline = new Deadline(temp[2],
+                        LocalDateTime.parse(temp[3]));
                 if (temp[1].equals("true")) {
                     tempDeadline.markAsDone();
                 }
                 list.add(tempDeadline);
                 break;
             case "E":
-                Event tempEvent = new Event(temp[2], temp[3], temp[4]);
+                Event tempEvent = new Event(temp[2],
+                        LocalDateTime.parse(temp[3]),
+                        LocalDateTime.parse(temp[4]));
                 if (temp[1].equals("true")) {
                     tempEvent.markAsDone();
                 }
