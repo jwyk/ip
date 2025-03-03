@@ -6,7 +6,6 @@ import bob.BobException;
 import bob.TaskList;
 import bob.parser.DateParser;
 import bob.tasks.Deadline;
-import bob.tasks.Event;
 import bob.ui.Ui;
 
 public class DeadlineCommand extends Command {

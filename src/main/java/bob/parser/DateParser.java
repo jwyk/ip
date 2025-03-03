@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-import bob.BobException;
-
 
 /**
  * Handles the parsing and printing of dates to the Deadline and Event Classes.
@@ -24,7 +22,7 @@ public class DateParser {
      * @param dateTime The string containing the date and time.
      * @return LocalDateTime object.
      */
-    public static LocalDateTime getDate(String dateTime) throws BobException{
+    public static LocalDateTime getDate(String dateTime){
 
         //Pattern: YYYY/MM/dd HHmm
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HHmm");
@@ -70,11 +68,4 @@ public class DateParser {
             return false;
         }
     }
-
-    public static void main(String[] args) throws BobException {
-        String date = "2019/12/01 1130";
-        LocalDateTime d1 = getDate(date);
-        System.out.println(printDate(d1));
-    }
-
 }

@@ -19,8 +19,6 @@ import bob.commands.UnmarkCommand;
 
 public class Parser {
 
-    private Action action;
-
     /**
      * Poll the CLI for user inputs until a COMMAND_BYE event is triggered
      *
@@ -36,7 +34,7 @@ public class Parser {
         do {
             line = in.nextLine();
             try {
-                Command c = parseString(line, taskList); //Parse inputs into different categories
+                Command c = parseString(line); //Parse inputs into different categories
                 c.execute(taskList);
                 Storage.save(taskList);
                 isExit = c.isExit();
@@ -50,9 +48,8 @@ public class Parser {
      * Process the string input to different commands, and returns Command actions
      *
      * @param input    User's input as a string
-     * @param taskList TaskList containing all tasks
      */
-    public static Command parseString(String input, TaskList taskList) throws BobException {
+    public static Command parseString(String input) throws BobException {
         System.out.println("____________________________________________________________");
 
         //Strip input into position and command

@@ -34,7 +34,7 @@ public class EventCommand extends Command {
         String endDate = fromToArray[1].trim();
 
         LocalDateTime startLocalDateTime = DateParser.getDate(startDate);
-        LocalDateTime endLocalDateTime = DateParser.getDate(startDate);
+        LocalDateTime endLocalDateTime = DateParser.getDate(endDate);
         if (startLocalDateTime == null || endLocalDateTime == null) {
             throw new BobException("The date and time input is not in the correct" +
                     "format. Please input it in: YYYY/MM/dd HHmm");

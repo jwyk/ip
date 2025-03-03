@@ -9,7 +9,7 @@ public class Bob {
     private static TaskList taskList;
     private Storage storage;
 
-    public static void main(String[] args) throws BobException {
+    public static void main(String[] args) {
         Ui.showHi();
         taskList = new TaskList();
         if (Storage.exists()) {
