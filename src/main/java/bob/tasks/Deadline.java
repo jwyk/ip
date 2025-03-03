@@ -1,15 +1,11 @@
 package bob.tasks;
 
-import java.time.LocalDateTime;
-
-import bob.parser.DateParser;
-
 /**
  * Represent a deadline task with a description, and due date
  */
 
 public class Deadline extends Task {
-    protected LocalDateTime dueDate;
+    protected String dueDate;
 
     /**
      * Constructs a Deadline task with a description and due date
@@ -19,7 +15,7 @@ public class Deadline extends Task {
      * @param dueDate Due Date/time
      */
 
-    public Deadline(String description, LocalDateTime dueDate) {
+    public Deadline(String description, String dueDate) {
         super(description);
         this.dueDate = dueDate;
     }
@@ -29,14 +25,13 @@ public class Deadline extends Task {
      */
     @Override
     public String toString() {
-        return "[D]" + getStatusIcon() + " " + this.description +
-                " (by: " + DateParser.printDate(this.dueDate) + ")";
+        return "[D]" + getStatusIcon() + " " + this.description + " (by: " + this.dueDate + ")";
     }
 
     /**
      * Returns the due date of a deadline
      */
-    public LocalDateTime getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 }

@@ -2,14 +2,13 @@ package bob;
 
 import java.io.IOException;
 
-import bob.parser.Parser;
 import bob.ui.Ui;
 
 public class Bob {
     private static TaskList taskList;
     private Storage storage;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BobException {
         Ui.showHi();
         taskList = new TaskList();
         if (Storage.exists()) {
