@@ -1,9 +1,12 @@
 package bob.commands;
 
+import java.time.LocalDateTime;
+
 import bob.BobException;
 import bob.TaskList;
 import bob.tasks.Event;
 import bob.ui.Ui;
+import bob.parser.DateParser;
 
 public class EventCommand extends Command {
     private final Event task;
@@ -29,7 +32,14 @@ public class EventCommand extends Command {
         String eventName = eventArray[0].trim();
         String startDate = fromToArray[0].trim();
         String endDate = fromToArray[1].trim();
-        task = new Event(eventName, startDate, endDate);
+
+        LocalDateTime startLocalDateTime = DateParser.getDate(startDate);
+        LocalDateTime endLocalDateTime = DateParser.getDate(endDate);
+        if (startLocalDateTime == null || endLocalDateTime == null) {
+            throw new BobException("The date and time input is not in the correct" +
+                    "format. Please input it in: YYYY/MM/dd HHmm");
+        }
+        task = new Event(eventName, startLocalDateTime, endLocalDateTime);
     }
 
     @Override
