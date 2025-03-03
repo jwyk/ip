@@ -18,5 +18,6 @@ public class ByeCommand extends Command {
     @Override
     public void execute(TaskList taskList) throws BobException {
         Ui.showBye();
+        Ui.showLine();
     }
 }
