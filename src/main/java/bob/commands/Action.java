@@ -13,7 +13,8 @@ public enum Action {
     DEADLINE("deadline"),
     TODO("todo"),
     EVENT("event"),
-    DELETE("delete");
+    DELETE("delete"),
+    FIND("find");
 
     private final String actionString;
 
