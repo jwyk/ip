@@ -1,5 +1,7 @@
 package bob.ui;
 
+import java.util.List;
+
 import bob.TaskList;
 import bob.tasks.Task;
 
@@ -46,6 +48,22 @@ public class Ui {
     public static void showHi() {
         showLine();
         System.out.println("Hello I'm Bob\n" + "What can I do for you?");
+        showLine();
+    }
+
+    public static void showFind(List<Task> filterList, String keyword) {
+        if (filterList.isEmpty()) {
+            System.out.println("There are no tasks containing " +
+                    "the description \"" + keyword + "\"");
+        } else {
+            int count = 1;
+            System.out.println("Got it. Found the tasks " +
+                    "matching the description \"" + keyword + "\"");
+            for (Task task: filterList) {
+                System.out.println(count + "." + task);
+                count++;
+            }
+        }
         showLine();
     }
 

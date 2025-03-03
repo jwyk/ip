@@ -1,6 +1,6 @@
 package bob.commands;
 
-import static bob.parser.Parser.convertToInt;
+import static bob.Parser.convertToInt;
 
 import bob.BobException;
 import bob.TaskList;
