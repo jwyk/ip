@@ -57,19 +57,18 @@ public class Parser {
         String command = inputArray[0].toLowerCase();
         Action action = Action.fromString(command);
 
-        return
-                switch (action) {
-                    case BYE -> new ByeCommand();
-                    case MARK -> new MarkCommand(input);
-                    case UNMARK -> new UnmarkCommand(input);
-                    case LIST -> new ListCommand();
-                    case DELETE -> new DeleteCommand(input);
-                    case TODO -> new TodoCommand(input);
-                    case DEADLINE -> new DeadlineCommand(input);
-                    case EVENT -> new EventCommand(input);
-                    case FIND -> new FindCommand(input);
-                    default -> throw new BobException("Sorry, I didn't get that. Will come back to you...");
-                };
+        return switch (action) {
+            case BYE -> new ByeCommand();
+            case MARK -> new MarkCommand(input);
+            case UNMARK -> new UnmarkCommand(input);
+            case LIST -> new ListCommand();
+            case DELETE -> new DeleteCommand(input);
+            case TODO -> new TodoCommand(input);
+            case DEADLINE -> new DeadlineCommand(input);
+            case EVENT -> new EventCommand(input);
+            case FIND -> new FindCommand(input);
+            default -> throw new BobException("Sorry, I didn't get that. Will come back to you...");
+        };
     }
 
     /**
