@@ -1,8 +1,5 @@
 package bob.parser;
 
-import java.io.IOException;
-import java.util.Scanner;
-
 import bob.BobException;
 import bob.Storage;
 import bob.TaskList;
@@ -18,6 +15,9 @@ import bob.commands.MarkCommand;
 import bob.commands.TodoCommand;
 import bob.commands.UnmarkCommand;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Parser {
 
     /**
@@ -25,17 +25,16 @@ public class Parser {
      *
      * @param taskList ArrayList containing Tasks
      */
-
     public static void getInput(TaskList taskList) {
-        //Initialise input variables
+        // Initialise input variables
         String line;
         Scanner in = new Scanner(System.in);
         boolean isExit = false;
-        //Handle Cases, until the COMMAND_BYE is detected
+        // Handle Cases, until the COMMAND_BYE is detected
         do {
             line = in.nextLine();
             try {
-                Command c = parseString(line); //Parse inputs into different categories
+                Command c = parseString(line); // Parse inputs into different categories
                 c.execute(taskList);
                 Storage.save(taskList);
                 isExit = c.isExit();
@@ -53,7 +52,7 @@ public class Parser {
     public static Command parseString(String input) throws BobException {
         System.out.println("____________________________________________________________");
 
-        //Strip input into position and command
+        // Strip input into position and command
         String[] inputArray = input.split(" ", 2);
         String command = inputArray[0].toLowerCase();
         Action action = Action.fromString(command);
@@ -76,7 +75,7 @@ public class Parser {
     /**
      * Return an integer of the task you want to mark
      *
-     * @param input        User's input as a string
+     * @param input User's input as a string
      * @param taskPosition Position of the first space
      * @return Integer of the task
      */
@@ -85,9 +84,9 @@ public class Parser {
             return Integer.parseInt(input.substring(taskPosition + 1));
         } catch (NumberFormatException e) {
             System.out.println(e.getMessage());
-            throw new BobException("Okay, we are checking.. there is an invalid number!" +
-                    " This isn't a number, type a proper digit.");
+            throw new BobException(
+                    "Okay, we are checking.. there is an invalid number!"
+                            + " This isn't a number, type a proper digit.");
         }
     }
-
 }

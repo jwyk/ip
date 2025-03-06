@@ -2,9 +2,7 @@ package bob.commands;
 
 import bob.BobException;
 
-/**
- * Maps each action to an actionString typed in by the user
- */
+/** Maps each action to an actionString typed in by the user */
 public enum Action {
     BYE("bye"),
     LIST("list"),
@@ -29,12 +27,11 @@ public enum Action {
      */
     public static Action fromString(String input) throws BobException {
         for (Action action : Action.values()) {
-            //Ignore any case
+            // Ignore any case
             if (action.actionString.equalsIgnoreCase(input)) {
                 return action;
             }
         }
         throw new BobException("No command with text " + input + " found");
     }
-
 }

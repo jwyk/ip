@@ -1,9 +1,9 @@
 package bob.ui;
 
-import java.util.List;
-
 import bob.TaskList;
 import bob.tasks.Task;
+
+import java.util.List;
 
 /*
  *
@@ -51,18 +51,17 @@ public class Ui {
         showLine();
     }
 
-    public static void showFind(List <Task> filterList, String keyword) {
+    public static void showFind(List<Task> filterList, String keyword) {
         if (filterList.isEmpty()) {
             System.out.println("No tasks contain matching keyword \"" + keyword + "\"");
         } else {
             int count = 1;
-            System.out.println("Tasks containing \"" + keyword+ "\"");
-            for (Task task: filterList) {
-                System.out.println(count + "."+ task);
+            System.out.println("Tasks containing \"" + keyword + "\"");
+            for (Task task : filterList) {
+                System.out.println(count + "." + task);
                 count++;
             }
         }
         showLine();
     }
-
 }

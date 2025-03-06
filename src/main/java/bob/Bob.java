@@ -1,9 +1,9 @@
 package bob;
 
-import java.io.IOException;
-
 import bob.parser.Parser;
 import bob.ui.Ui;
+
+import java.io.IOException;
 
 public class Bob {
     private static TaskList taskList;
@@ -21,6 +21,5 @@ public class Bob {
         }
 
         Parser.getInput(taskList);
-
     }
 }
