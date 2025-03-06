@@ -1,8 +1,8 @@
 package bob.commands;
 
 import java.util.List;
-import bob.BobException;
-import bob.TaskList;
+import bob.exception.BobException;
+import bob.storage.TaskList;
 import bob.tasks.Task;
 import bob.ui.Ui;
 

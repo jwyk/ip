@@ -1,4 +1,4 @@
-package bob;
+package bob.storage;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 
+import bob.exception.BobException;
 import bob.tasks.Deadline;
 import bob.tasks.Event;
 import bob.tasks.Task;

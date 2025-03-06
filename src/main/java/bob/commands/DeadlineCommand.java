@@ -2,8 +2,8 @@ package bob.commands;
 
 import java.time.LocalDateTime;
 
-import bob.BobException;
-import bob.TaskList;
+import bob.exception.BobException;
+import bob.storage.TaskList;
 import bob.parser.DateParser;
 import bob.tasks.Deadline;
 import bob.ui.Ui;

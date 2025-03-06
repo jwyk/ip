@@ -1,7 +1,7 @@
 package bob.commands;
 
-import bob.BobException;
-import bob.TaskList;
+import bob.exception.BobException;
+import bob.storage.TaskList;
 
 /**
  * Contains the base abstract Command Class

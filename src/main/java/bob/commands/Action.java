@@ -1,6 +1,6 @@
 package bob.commands;
 
-import bob.BobException;
+import bob.exception.BobException;
 
 /**
  * Maps each action to an actionString typed in by the user

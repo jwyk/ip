@@ -1,8 +1,9 @@
-package bob;
+package bob.storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import bob.exception.BobException;
 import bob.tasks.Task;
 
 /*
