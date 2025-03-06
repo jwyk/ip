@@ -3,6 +3,8 @@ package bob;
 import java.io.IOException;
 
 import bob.parser.Parser;
+import bob.storage.Storage;
+import bob.storage.TaskList;
 import bob.ui.Ui;
 
 public class Bob {

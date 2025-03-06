@@ -3,9 +3,6 @@ package bob.parser;
 import java.io.IOException;
 import java.util.Scanner;
 
-import bob.BobException;
-import bob.Storage;
-import bob.TaskList;
 import bob.commands.Action;
 import bob.commands.ByeCommand;
 import bob.commands.Command;
@@ -17,13 +14,23 @@ import bob.commands.ListCommand;
 import bob.commands.MarkCommand;
 import bob.commands.TodoCommand;
 import bob.commands.UnmarkCommand;
+import bob.exception.BobException;
+import bob.storage.Storage;
+import bob.storage.TaskList;
+
+/**
+ * Handles parsing of user input and execution of commands.
+ * <p>
+ * The {@code Parser} class continuously listens for user input,
+ * processes it into commands, and executes them accordingly.
+ */
 
 public class Parser {
 
     /**
-     * Poll the CLI for user inputs until a COMMAND_BYE event is triggered
+     * Continuously listens for user input from the CLI until a "bye" command is issued.
      *
-     * @param taskList ArrayList containing Tasks
+     * @param taskList The {@link TaskList} containing tasks to be managed.
      */
 
     public static void getInput(TaskList taskList) {
@@ -46,9 +53,11 @@ public class Parser {
     }
 
     /**
-     * Process the string input to different commands, and returns Command actions
+     * Parses the user input string into a corresponding {@link Command}.
      *
-     * @param input    User's input as a string
+     * @param input The user's input as a string.
+     * @return A {@link Command} object representing the parsed command.
+     * @throws BobException If the command is unrecognized.
      */
     public static Command parseString(String input) throws BobException {
         System.out.println("____________________________________________________________");
@@ -73,11 +82,12 @@ public class Parser {
     }
 
     /**
-     * Return an integer of the task you want to mark
+     * Converts a substring of the user input into an integer, representing a task index.
      *
-     * @param input        User's input as a string
-     * @param taskPosition Position of the first space
-     * @return Integer of the task
+     * @param input        The user's input as a string.
+     * @param taskPosition The position of the first space in the input string.
+     * @return The integer representation of the task index.
+     * @throws BobException If the extracted string is not a valid integer.
      */
     public static int convertToInt(String input, int taskPosition) throws BobException {
         try {

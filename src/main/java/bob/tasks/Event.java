@@ -5,7 +5,8 @@ import java.time.LocalDateTime;
 import bob.parser.DateParser;
 
 /**
- * Represent an event task with a start and end date
+ * Represents an event task with a specific start and end date/time.
+ * This class extends the {@code Task} class and adds functionality for handling event-specific details.
  */
 
 public class Event extends Task {
@@ -13,11 +14,11 @@ public class Event extends Task {
     protected LocalDateTime endDate;
 
     /**
-     * Constructs an Event task with a description, start date and end date
+     * Constructs an {@code Event} task with a description, start date, and end date.
      *
-     * @param description Event details
-     * @param startDate   Event starting date/time
-     * @param endDate     Event ending date/time
+     * @param description The details of the event.
+     * @param startDate   The start date and time of the event.
+     * @param endDate     The end date and time of the event.
      */
     public Event(String description, LocalDateTime startDate, LocalDateTime endDate) {
         super(description);
@@ -26,7 +27,10 @@ public class Event extends Task {
     }
 
     /**
-     * @inheritDoc
+     * Returns a string representation of the event task, including its status, description,
+     * and formatted start and end dates.
+     *
+     * @return A string representation of the event task.
      */
     @Override
     public String toString() {

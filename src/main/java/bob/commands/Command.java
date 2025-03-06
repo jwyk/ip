@@ -1,7 +1,7 @@
 package bob.commands;
 
-import bob.BobException;
-import bob.TaskList;
+import bob.exception.BobException;
+import bob.storage.TaskList;
 
 /**
  * Contains the base abstract Command Class
@@ -21,6 +21,7 @@ public abstract class Command {
      * Executes the given command.
      * This method is intended to be implemented by
      * subclasses to perform its associated actions
+     * @param taskList The task list to which {@code Tasks} is added.
      */
 
     public abstract void execute(TaskList taskList) throws BobException;

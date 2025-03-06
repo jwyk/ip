@@ -1,32 +1,46 @@
-package bob;
+package bob.storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import bob.exception.BobException;
 import bob.tasks.Task;
 
-/*
- * Contains an ArrayList of Tasks with ability to print out contents
+/**
+ * Represents a list of tasks with methods to manage them.
+ * <p>
+ * This class provides functionality to add, remove, mark, unmark,
+ * list, and search for tasks.
  */
 
 public class TaskList {
     ArrayList<Task> taskList;
 
+    /**
+     * Constructs an empty TaskList.
+     */
+
     public TaskList() {
         this.taskList = new ArrayList<Task>();
     }
+
+    /**
+     * Adds a task to the task list.
+     *
+     * @param task The {@link Task} to be added.
+     */
 
     public void add(Task task) {
         taskList.add(task);
     }
 
     /**
-     * Lists out all the tasks present in the list in the following format:
-     * For Todo Tasks: [isDone][T] description
+     * Lists all the tasks currently stored in the task list.
      * <p>
-     * For Deadline Tasks: [isDone][D] description (by: deadline)
-     * <p>
-     * For Event Tasks: [isDone][E] description (from: fromDate to: dueDate)
+     * Tasks are displayed in the following format:
+     * - Todo Tasks: [isDone][T] description
+     * - Deadline Tasks: [isDone][D] description (by: deadline)
+     * - Event Tasks: [isDone][E] description (from: startDate to: endDate)
      */
     public void list() {
         if (taskList.isEmpty()) {
@@ -39,10 +53,11 @@ public class TaskList {
     }
 
     /**
-     * Marks 1 task specified at index from the TaskList as completed
+     * Marks a task as completed at the specified index.
      *
-     * @param index Position of the task to mark as done in the TaskList
-     * @throws BobException Index is out of bounds
+     * @param index The position of the task to mark as done.
+     * @return The updated {@link Task} that has been marked as done.
+     * @throws BobException If the index is out of bounds.
      */
 
     public Task mark(int index) throws BobException {
@@ -60,10 +75,11 @@ public class TaskList {
     }
 
     /**
-     * Unmarks 1 task specified at index from the TaskList as unfinished
+     * Unmarks a task as incomplete at the specified index.
      *
-     * @param index Position of the task to mark as undone in the TaskList
-     * @throws BobException Index is out of bounds
+     * @param index The position of the task to mark as undone.
+     * @return The updated {@link Task} that has been marked as undone.
+     * @throws BobException If the index is out of bounds.
      */
 
     public Task unmark(int index) throws BobException {
@@ -81,11 +97,13 @@ public class TaskList {
     }
 
     /**
-     * Deletes and returns 1 task specified at index from the TaskList
+     * Deletes a task at the specified index from the task list.
      *
-     * @param index Position of the task to be deleted in the TaskList
-     * @throws BobException Index is out of bounds
+     * @param index The position of the task to be deleted.
+     * @return The removed {@link Task}.
+     * @throws BobException If the index is out of bounds.
      */
+
     public Task delete(int index) throws BobException {
         if (taskList.isEmpty()) {
             throw new BobException("There are no tasks to delete. Maybe add a few more."); //Not within list range
@@ -101,30 +119,35 @@ public class TaskList {
 
 
     /**
-     * Returns the number of tasks
+     * Returns the number of tasks in the task list.
+     *
+     * @return The size of the task list.
      */
     public int size() {
         return taskList.size();
     }
 
     /**
-     * Returns a task at the specified index
+     * Retrieves a task at the specified index.
+     *
+     * @param index The index of the task.
+     * @return The {@link Task} at the given index.
      */
     public Task get(int index) {
         return taskList.get(index);
     }
 
     /**
-     * Returns a List of Tasks containing the filtered keyword
-     * in their description
+     * Finds tasks that contain the specified keyword in their description.
      *
-     * @param keyword String containing the description to filter for
+     * @param keyword The keyword to filter tasks by.
+     * @return A {@link List} of tasks that contain the keyword.
      */
 
     public List<Task> find(String keyword) {
         List<Task> tasks = new ArrayList<Task>();
-        for (Task task: taskList) {
-            if(task.getDescription().contains(keyword)) {
+        for (Task task : taskList) {
+            if (task.getDescription().contains(keyword)) {
                 tasks.add(task);
             }
         }

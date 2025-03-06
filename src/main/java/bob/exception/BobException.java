@@ -1,4 +1,4 @@
-package bob;
+package bob.exception;
 
 /**
  * Custom exception class for exceptions specific to Bob.

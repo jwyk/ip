@@ -1,6 +1,6 @@
 package bob.commands;
 
-import bob.BobException;
+import bob.exception.BobException;
 
 /**
  * Maps each action to an actionString typed in by the user
@@ -18,14 +18,21 @@ public enum Action {
 
     private final String actionString;
 
+    /**
+     * Constructs an {@code Action} with the specified command string.
+     *
+     * @param actionString The string representation of the action.
+     */
     Action(String actionString) {
         this.actionString = actionString;
     }
 
     /**
-     * Return an Action value from a given input string
+     * Returns an {@code Action} corresponding to a given input string.
      *
-     * @param input Input String from the console
+     * @param input The user input string.
+     * @return The corresponding {@code Action} enum value.
+     * @throws BobException If no matching action is found.
      */
     public static Action fromString(String input) throws BobException {
         for (Action action : Action.values()) {
