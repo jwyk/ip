@@ -3,8 +3,8 @@ package bob.storage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 import bob.exception.BobException;
 import bob.tasks.Deadline;
@@ -13,14 +13,11 @@ import bob.tasks.Task;
 import bob.tasks.Todo;
 
 /**
- * Represents a storage class which saves in the following format
- * taskIcon|description|isDone
+ * Handles storage of tasks to and from a file.
  * <p>
- * For Deadline tasks, the following is the format
- * taskIcon|description|isDone|dueDate
- * <p>
- * For Event tasks, the following is the format
- * taskIcon|description|isDone|startDate|endDate
+ * This class provides methods to save and load tasks from a text file,
+ * ensuring persistence between program executions. The tasks are stored
+ * in a structured format, with each field separated by a delimiter.
  */
 
 public class Storage {
@@ -28,7 +25,9 @@ public class Storage {
     private static final String DIV = "|";
 
     /**
-     * Returns whether a save file exists or not
+     * Checks if the save file exists.
+     *
+     * @return {@code true} if the file exists, {@code false} otherwise.
      */
 
     public static boolean exists() {
@@ -37,9 +36,11 @@ public class Storage {
     }
 
     /**
-     * Saves the list into a text file, each separated by 1 line
+     * Saves the given list of tasks to a text file.
      *
-     * @param list ArrayList containing Tasks
+     * @param list The {@link TaskList} containing tasks to be saved.
+     * @throws BobException If an error occurs during the saving process.
+     * @throws IOException  If an I/O error occurs.
      */
 
     public static void save(TaskList list) throws BobException, IOException {
@@ -71,9 +72,10 @@ public class Storage {
     }
 
     /**
-     * Loads tasks from a text file, each separated by 1 line
+     * Loads tasks from the save file into the given task list.
      *
-     * @param list ArrayList containing Tasks
+     * @param list The {@link TaskList} to populate with loaded tasks.
+     * @throws IOException If an I/O error occurs while reading the file.
      */
 
     public static void load(TaskList list) throws IOException {

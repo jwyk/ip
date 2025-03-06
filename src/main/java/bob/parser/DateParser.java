@@ -15,8 +15,6 @@ public class DateParser {
     /**
      * Returns a LocalDateTime object from a string containing date and time.
      * <p>
-     * This function will fail if the string doesn't contain the correct format
-     * <p>
      * DateTime Format: YYYY/MM/dd HHmm (Year/Month/Day 24Hr Time)
      *
      * @param dateTime The string containing the date and time.

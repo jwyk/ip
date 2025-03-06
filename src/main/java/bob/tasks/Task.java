@@ -1,7 +1,8 @@
 package bob.tasks;
 
 /**
- * Represent a task with a description, and completion status
+ * Represents a generic task with a description and a completion status.
+ * This is an abstract class that serves as the base for specific task types.
  */
 
 public abstract class Task {
@@ -9,10 +10,10 @@ public abstract class Task {
     protected boolean isDone;
 
     /**
-     * Constructs a task with a description, start date and end date
-     * By default, sets isDone to false
+     * Constructs a task with a description.
+     * By default, the task is marked as not done.
      *
-     * @param description Task details
+     * @param description The details of the task.
      */
 
     public Task(String description) {
@@ -21,40 +22,52 @@ public abstract class Task {
     }
 
     /**
-     * Returns a String representation of completion status
+     * Returns a string representation of the task's completion status.
+     *
+     * @return "[X]" if the task is done, "[ ]" otherwise.
      */
     public String getStatusIcon() {
         return (isDone ? "[X]" : "[ ]"); // mark done task with X
     }
 
     /**
-     * Returns a String representation of the task
+     * Returns a string representation of the event task, including its status, description.
+     * <p>
+     * Depending on the subclass, it also returns the starting and ending dates, or the due date.
+     * <p>
+     * This method is abstract and must be implemented by subclasses.
+     *
+     * @return A string representation of the event task.
      */
     public abstract String toString();
 
     /**
-     * Marks completion status as done
+     * Marks the task as done.
      */
     public void markAsDone() {
         this.isDone = true;
     }
 
     /**
-     * Marks completion status as undone
+     * Marks the task as not done.
      */
     public void markAsUndone() {
         this.isDone = false;
     }
 
     /**
-     * Returns the description of a task
+     * Returns the description of the task.
+     *
+     * @return The task's description.
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * Returns the status of a task
+     * Returns the completion status of the task.
+     *
+     * @return {@code true} if the task is done, {@code false} otherwise.
      */
     public boolean getStatus() {
         return isDone;
