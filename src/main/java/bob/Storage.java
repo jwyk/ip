@@ -3,8 +3,8 @@ package bob;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 import bob.tasks.Deadline;
 import bob.tasks.Event;
@@ -12,10 +12,12 @@ import bob.tasks.Task;
 import bob.tasks.Todo;
 
 /**
- * Represents a storage class which saves in the following format
+ * Represents a storage class which saves in the following format:
+ * <p>
  * taskIcon|description|isDone
  * <p>
  * For Deadline tasks, the following is the format
+ * <p>
  * taskIcon|description|isDone|dueDate
  * <p>
  * For Event tasks, the following is the format
