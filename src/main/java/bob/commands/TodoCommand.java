@@ -11,8 +11,9 @@ public class TodoCommand extends Command {
     public TodoCommand(String input) throws BobException {
         int taskPosition = input.indexOf(' ');
         if (taskPosition == -1) {
-            throw new BobException("Okay we are checking... there's no description." +
-                    "Please add a description."); //Missing description
+            throw new BobException(
+                    "Okay we are checking... there's no description."
+                            + "Please add a description."); // Missing description
         }
         String description = input.substring(taskPosition + 1);
         task = new Todo(description);

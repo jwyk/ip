@@ -7,8 +7,7 @@ import bob.ui.Ui;
 public class ByeCommand extends Command {
 
     /**
-     * Returns whether to exit the application
-     * Overrides the default value to exit the application
+     * Returns whether to exit the application Overrides the default value to exit the application
      */
     @Override
     public boolean isExit() {

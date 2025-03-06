@@ -5,7 +5,7 @@ import bob.TaskList;
 import bob.tasks.Task;
 import bob.ui.Ui;
 
-public class UnmarkCommand extends MarkCommand{
+public class UnmarkCommand extends MarkCommand {
 
     public UnmarkCommand(String input) throws BobException {
         super(input);
@@ -14,7 +14,6 @@ public class UnmarkCommand extends MarkCommand{
     @Override
     public void execute(TaskList taskList) throws BobException {
         Task task = taskList.unmark(super.position);
-        Ui.showUnmark(taskList,task);
-
+        Ui.showUnmark(taskList, task);
     }
 }
